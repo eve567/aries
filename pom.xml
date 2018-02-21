@@ -17,12 +17,24 @@
     <modules>
         <module>aries-eureka</module>
         <module>aries-config</module>
+        <module>aries-sample-domain</module>
+        <module>aries-sample-client</module>
+        <module>aries-sample-provider</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
+        <ufrog.common.version>0.0.4</ufrog.common.version>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>net.ufrog</groupId>
+            <artifactId>ufrog-common-core</artifactId>
+            <version>${ufrog.common.version}</version>
+        </dependency>
+    </dependencies>
 
     <dependencyManagement>
         <dependencies>
