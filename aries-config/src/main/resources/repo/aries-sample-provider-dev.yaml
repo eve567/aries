@@ -11,8 +11,8 @@ logging:
   level:
     root: INFO
     org.hibernate: INFO
-    # org.hibernate.type.descriptor.sql.BasicBinder: TRACE
-    # org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
     com.itmuch.youran.persistence: ERROR
 eureka:
   instance:
