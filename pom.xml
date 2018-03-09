@@ -20,6 +20,7 @@
         <module>aries-sample-domain</module>
         <module>aries-sample-client</module>
         <module>aries-sample-provider</module>
+        <module>aries-sample-consumer</module>
     </modules>
 
     <properties>

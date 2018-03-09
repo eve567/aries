@@ -13,13 +13,31 @@ public class Req implements Serializable {
 
     private static final long serialVersionUID = -2797289509428414751L;
 
+    /** 请求头 */
+    private ReqHeader header;
+
     /** 构造函数 */
     public Req() {
         this.header = new ReqHeader();
     }
 
-    /** 请求头 */
-    private ReqHeader header;
+    /**
+     * 读取请求头
+     *
+     * @return 请求头
+     */
+    public ReqHeader getHeader() {
+        return header;
+    }
+
+    /**
+     * 设置请求头
+     *
+     * @param header 请求头
+     */
+    public void setHeader(ReqHeader header) {
+        this.header = header;
+    }
 
     /**
      * 请求头

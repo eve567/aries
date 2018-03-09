@@ -17,8 +17,26 @@ public class Resp implements Serializable {
 
     private static final long serialVersionUID = -922112126002045340L;
 
-    /** 代码 */
-    private String code;
+    /** 结果代码 */
+    private String resultCode;
+
+    /**
+     * 读取结果代码
+     *
+     * @return 结果代码
+     */
+    public String getResultCode() {
+        return resultCode;
+    }
+
+    /**
+     * 设置结果代码
+     *
+     * @param resultCode 结果代码
+     */
+    public void setResultCode(String resultCode) {
+        this.resultCode = resultCode;
+    }
 
     /**
      * 响应是否成功
@@ -26,26 +44,26 @@ public class Resp implements Serializable {
      * @return 判断结果
      */
     public Boolean isSuccess() {
-        return Strings.empty(this.code) || Strings.equals(Code.SUCCESS, this.code);
+        return Strings.empty(this.resultCode) || Strings.equals(ResultCode.SUCCESS, this.resultCode);
     }
 
     /**
-     * 读取消息
+     * 读取结果消息
      *
-     * @return 消息内容
+     * @return 结果消息
      */
-    public String getMessage() {
-        return Dicts.name(this.code, Code.class);
+    public String getResultMessage() {
+        return Dicts.name(this.resultCode, ResultCode.class);
     }
 
     /**
-     * 代码
+     * 结果代码
      *
      * @author ultrafrog
      * @version 0.1, 2018-02-21
      * @since 0.1
      */
-    public static final class Code {
+    public static final class ResultCode {
 
         @Element("成功")
         public static final String SUCCESS  = "0000";
