@@ -6,17 +6,18 @@ spring:
   ufrog:
     app:
       enabled: true
-      app:
-        secret: zbh7DN0sLZYI5d6L0NzCwklr0NtZExi3RJ6ERKrjIzYuGz6WZYjplu2J0tKqEA8T
-      pattern:
-        uuid: "[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}"
-        cellphone: "1[3578][0-9]{9}"
-        email: "[\\w!#$%&'*+/=?^_`{|}~-]+(?:\\.[\\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[a-zA-Z0-9](?:[\\w-]*[\\w])?"
-      path:
-        resource:
-          common: //localhost:7086/static/resources
-          host: //localhost:7086/static/resources/aries
-          theme: //localhost:7086/static/resources/aries/default
+      config:
+        app:
+          secret: zbh7DN0sLZYI5d6L0NzCwklr0NtZExi3RJ6ERKrjIzYuGz6WZYjplu2J0tKqEA8T
+        pattern:
+          uuid: "[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}"
+          cellphone: "1[3578][0-9]{9}"
+          email: "[\\w!#$%&'*+/=?^_`{|}~-]+(?:\\.[\\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[a-zA-Z0-9](?:[\\w-]*[\\w])?"
+        path:
+          resource:
+            common: //localhost:7086/static/resources
+            host: //localhost:7086/static/resources/aries
+            theme: //localhost:7086/static/resources/aries/default
 eureka:
   instance:
     prefer-ip-address: true
