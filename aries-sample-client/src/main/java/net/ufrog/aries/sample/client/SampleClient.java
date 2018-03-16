@@ -1,10 +1,10 @@
 package net.ufrog.aries.sample.client;
 
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import net.ufrog.aries.sample.client.contract.SampleResp;
 import org.springframework.cloud.netflix.feign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 样例客户端
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @FeignClient(name = "aries-sample-provider")
 @RequestMapping("/sample")
+@RestController
 public interface SampleClient {
 
     /**
@@ -23,6 +24,8 @@ public interface SampleClient {
      * @param id 编号
      * @return 样例对象
      */
-    @GetMapping("/{id}")
+    @RequestMapping(value = "/{id}", method = {RequestMethod.GET, RequestMethod.DELETE})
+    @ApiOperation(value = "查询样例", notes = "我就是个测试")
+    @ApiImplicitParam(value = "样例编号", name = "id", required = true, paramType = "path", dataTypeClass = String.class)
     SampleResp findById(@PathVariable("id") String id);
 }
