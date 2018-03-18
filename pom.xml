@@ -15,8 +15,9 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>aries-eureka</module>
         <module>aries-config</module>
+        <module>aries-eureka</module>
+        <module>aries-hystrix-dashboard</module>
         <module>aries-sample-domain</module>
         <module>aries-sample-client</module>
         <module>aries-sample-provider</module>
@@ -26,25 +27,37 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
-        <ufrog.common.version>0.0.4</ufrog.common.version>
+        <ufrog-spring-cloud-dependencies.version>0.0.1</ufrog-spring-cloud-dependencies.version>
+        <springfox-swagger2.version>2.8.0</springfox-swagger2.version>
+        <springfox-swagger-ui.version>2.8.0</springfox-swagger-ui.version>
+        <aries-sample-client.version>0.0.1</aries-sample-client.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>net.ufrog</groupId>
             <artifactId>ufrog-common-core</artifactId>
-            <version>${ufrog.common.version}</version>
         </dependency>
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Edgware.SR2</version>
+                <groupId>net.ufrog</groupId>
+                <artifactId>ufrog-spring-cloud-dependencies</artifactId>
+                <version>${ufrog-spring-cloud-dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${springfox-swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${springfox-swagger-ui.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
