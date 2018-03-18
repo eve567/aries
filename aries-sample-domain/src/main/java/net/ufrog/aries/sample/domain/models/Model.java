@@ -1,7 +1,10 @@
 package net.ufrog.aries.sample.domain.models;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
+import net.ufrog.common.Logger;
+import net.ufrog.common.app.App;
+import net.ufrog.common.exception.NotSignException;
+
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -31,6 +34,9 @@ public class Model extends ID {
     /** 更新时间 */
     @Column(name = "dt_update_time")
     private Date updateTime;
+
+    /** 是否手动设置审计字段 */
+    private Boolean _manualAudit;
 
     /**
      * 读取创建用户
@@ -102,5 +108,67 @@ public class Model extends ID {
      */
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    /**
+     * 读取是否手动设置审计字段
+     *
+     * @return 是否手动设置审计字段
+     */
+    public Boolean _manualAudit() {
+        return _manualAudit;
+    }
+
+    /**
+     * 设置是否手动设置审计字段
+     *
+     * @param _manualAudit 是否手动设置审计字段
+     */
+    public void _manualAudit(Boolean _manualAudit) {
+        this._manualAudit = _manualAudit;
+    }
+
+    /** 持久化前回调 */
+    @PrePersist
+    protected void onPrePersist() {
+        if (_manualAudit()) return;
+        creator = getAppUserId();
+        createTime = new Date();
+        updater = creator;
+        updateTime = new Date();
+    }
+
+    /** 持久化后回调 */
+    @PostPersist
+    protected void onPostPersist() {
+        Logger.debug("insert data '{}: {}'.", getClass().getSimpleName(), toString());
+    }
+
+    /** 更新前回调 */
+    @PreUpdate
+    protected void onPreUpdate() {
+        updater = getAppUserId();
+        updateTime = new Date();
+    }
+
+    @Override
+    public String toString() {
+        return getId();
+    }
+
+    /**
+     * 读取应用用户编号
+     *
+     * @return 应用用户编号
+     */
+    private String getAppUserId() {
+        try {
+            return App.user().getId();
+        } catch (NotSignException e) {
+            return null;
+        } catch (Throwable e) {
+            Logger.warn(e.getMessage(), e);
+            return null;
+        }
     }
 }
