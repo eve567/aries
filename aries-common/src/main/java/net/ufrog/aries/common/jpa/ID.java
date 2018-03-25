@@ -1,4 +1,4 @@
-package net.ufrog.aries.sample.domain.models;
+package net.ufrog.aries.common.jpa;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -23,12 +23,9 @@ public class ID implements Serializable {
     /** 编号 */
     @Id
     @GeneratedValue(generator = "hibernate-uuid")
-    @GenericGenerator(name = "hibernate-uuid", strategy = "net.ufrog.aries.sample.domain.IDGenerator")
+    @GenericGenerator(name = "hibernate-uuid", strategy = "net.ufrog.aries.common.jpa.IDGenerator")
     @Column(name = "pk_id")
     private String id;
-
-    /** 是否手动编号 */
-    private Boolean _manualId = Boolean.FALSE;
 
     /**
      * 读取编号
@@ -46,23 +43,5 @@ public class ID implements Serializable {
      */
     public void setId(String id) {
         this.id = id;
-    }
-
-    /**
-     * 读取是否手动编号
-     *
-     * @return 是否手动编号
-     */
-    public Boolean _manualId() {
-        return _manualId;
-    }
-
-    /**
-     * 设置是否手动编号
-     *
-     * @param _manualId 是否手动编号
-     */
-    public void _manualId(Boolean _manualId) {
-        this._manualId = _manualId;
     }
 }

@@ -1,5 +1,6 @@
-package net.ufrog.aries.sample.domain.models;
+package net.ufrog.aries.common.jpa;
 
+import com.alibaba.fastjson.JSON;
 import net.ufrog.common.Logger;
 import net.ufrog.common.app.App;
 import net.ufrog.common.exception.NotSignException;
@@ -34,9 +35,6 @@ public class Model extends ID {
     /** 更新时间 */
     @Column(name = "dt_update_time")
     private Date updateTime;
-
-    /** 是否手动设置审计字段 */
-    private Boolean _manualAudit;
 
     /**
      * 读取创建用户
@@ -110,58 +108,50 @@ public class Model extends ID {
         this.updateTime = updateTime;
     }
 
-    /**
-     * 读取是否手动设置审计字段
-     *
-     * @return 是否手动设置审计字段
-     */
-    public Boolean _manualAudit() {
-        return _manualAudit;
-    }
-
-    /**
-     * 设置是否手动设置审计字段
-     *
-     * @param _manualAudit 是否手动设置审计字段
-     */
-    public void _manualAudit(Boolean _manualAudit) {
-        this._manualAudit = _manualAudit;
-    }
-
     /** 持久化前回调 */
     @PrePersist
-    protected void onPrePersist() {
-        if (_manualAudit()) return;
-        creator = getAppUserId();
-        createTime = new Date();
-        updater = creator;
-        updateTime = new Date();
+    void onPrePersist() {
+        if (this instanceof ManualModel) {
+            if (getCreateTime() == null) setCreateTime(new Date());
+            if (getUpdateTime() == null) setUpdateTime(new Date());
+        } else {
+            setCreator(getCurrentUserId());
+            setCreateTime(new Date());
+            setUpdater(getCurrentUserId());
+            setUpdateTime(new Date());
+        }
     }
 
     /** 持久化后回调 */
     @PostPersist
-    protected void onPostPersist() {
-        Logger.debug("insert data '{}: {}'.", getClass().getSimpleName(), toString());
+    void onPostPersist() {
+        Logger.debug("insert data '%s: %s' by user '%s'", getClass().getSimpleName(), toString(), getCreator());
     }
 
     /** 更新前回调 */
     @PreUpdate
-    protected void onPreUpdate() {
-        updater = getAppUserId();
-        updateTime = new Date();
+    void onPreUpdate() {
+        setUpdater(getCurrentUserId());
+        setUpdateTime(new Date());
+    }
+
+    /** 更新后回调 */
+    @PostUpdate
+    void onPostUpdate() {
+        Logger.debug("update data '%s: %s' by user '%s'", getClass().getSimpleName(), toString(), getUpdater());
     }
 
     @Override
     public String toString() {
-        return getId();
+        return JSON.toJSONString(this);
     }
 
     /**
-     * 读取应用用户编号
+     * 读取当前用户编号
      *
-     * @return 应用用户编号
+     * @return 当前用户编号
      */
-    private String getAppUserId() {
+    private String getCurrentUserId() {
         try {
             return App.user().getId();
         } catch (NotSignException e) {

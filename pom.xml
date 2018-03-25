@@ -14,10 +14,37 @@
     <version>0.0.1</version>
     <packaging>pom</packaging>
 
+    <repositories>
+        <repository>
+            <id>maven-public</id>
+            <url>http://maven.jpjbp.com/repository/maven-public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>maven-releases</id>
+            <name>maven-releases</name>
+            <url>http://maven.jpjbp.com/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>maven-snapshots</id>
+            <name>maven-snapshots</name>
+            <url>http://maven.jpjbp.com/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <modules>
         <module>aries-config</module>
         <module>aries-eureka</module>
         <module>aries-hystrix-dashboard</module>
+        <module>aries-common</module>
         <module>aries-sample-domain</module>
         <module>aries-sample-client</module>
         <module>aries-sample-provider</module>
@@ -30,6 +57,7 @@
         <ufrog-spring-cloud-dependencies.version>0.0.1</ufrog-spring-cloud-dependencies.version>
         <springfox-swagger2.version>2.8.0</springfox-swagger2.version>
         <springfox-swagger-ui.version>2.8.0</springfox-swagger-ui.version>
+        <aries-common.version>0.0.1</aries-common.version>
         <aries-sample-client.version>0.0.1</aries-sample-client.version>
     </properties>
 
@@ -61,13 +89,4 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 </project>

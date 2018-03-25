@@ -1,6 +1,6 @@
-package net.ufrog.aries.sample.domain;
+package net.ufrog.aries.common.jpa;
 
-import net.ufrog.aries.sample.domain.models.ID;
+import net.ufrog.common.Logger;
 import net.ufrog.common.utils.Strings;
 import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SessionImplementor;
@@ -17,9 +17,10 @@ public class IDGenerator extends UUIDGenerator {
 
     @Override
     public Serializable generate(SessionImplementor session, Object object) throws HibernateException {
-        if (object instanceof ID) {
+        if ((object instanceof ManualID) && (object instanceof ID)) {
             ID id = ID.class.cast(object);
-            if (id._manualId() && !Strings.empty(id.getId())) {
+            if (!Strings.empty(id.getId())) {
+                Logger.debug("original primary key: %s", id.getId());
                 return id.getId();
             }
         }

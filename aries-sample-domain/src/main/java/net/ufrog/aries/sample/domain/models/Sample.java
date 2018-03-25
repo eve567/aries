@@ -1,5 +1,7 @@
 package net.ufrog.aries.sample.domain.models;
 
+import net.ufrog.aries.common.jpa.Model;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
