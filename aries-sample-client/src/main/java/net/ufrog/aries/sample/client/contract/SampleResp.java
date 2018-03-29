@@ -1,5 +1,7 @@
 package net.ufrog.aries.sample.client.contract;
 
+import net.ufrog.aries.common.contract.Resp;
+
 /**
  * 样例对象
  *

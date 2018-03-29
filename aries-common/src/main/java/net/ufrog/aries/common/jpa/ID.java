@@ -18,6 +18,8 @@ import java.io.Serializable;
 @MappedSuperclass
 public class ID implements Serializable {
 
+    public static final String NULL = "_null";
+    
     private static final long serialVersionUID = 6708656201306044261L;
 
     /** 编号 */

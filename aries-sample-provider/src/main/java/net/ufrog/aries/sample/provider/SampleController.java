@@ -1,7 +1,6 @@
 package net.ufrog.aries.sample.provider;
 
 import net.ufrog.aries.sample.client.SampleClient;
-import net.ufrog.aries.sample.client.contract.Resp;
 import net.ufrog.aries.sample.client.contract.SampleResp;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +17,7 @@ public class SampleController implements SampleClient {
     @Override
     public SampleResp findById(String id) {
         SampleResp sampleResp = new SampleResp();
-        sampleResp.setResultCode(Resp.ResultCode.SUCCESS);
+        sampleResp.setResultCode(AriesResp.ResultCode.SUCCESS);
         return sampleResp;
     }
 }

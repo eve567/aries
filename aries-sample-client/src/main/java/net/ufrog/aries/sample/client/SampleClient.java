@@ -4,7 +4,9 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import net.ufrog.aries.sample.client.contract.SampleResp;
 import org.springframework.cloud.netflix.feign.FeignClient;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * 样例客户端
@@ -15,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
  */
 @FeignClient(name = "aries-sample-provider")
 @RequestMapping("/sample")
-@RestController
 public interface SampleClient {
 
     /**
