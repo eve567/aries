@@ -22,10 +22,10 @@ public class Resp implements Serializable {
     private static final String SUCCESS_CODE;
 
     static {
-        String className = App.config("app.client.resultCodeClass");
+        String className = App.config("client.resultCodeClass");
         try {
             RESULT_CODE_CLASS = Class.forName(className);
-            SUCCESS_CODE = App.config("app.client.successCode", "0000");
+            SUCCESS_CODE = App.config("client.successCode", "0000");
         } catch (ClassNotFoundException e) {
             throw new ServiceException("cannot find result code class: " + className, e);
         }
