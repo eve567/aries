@@ -18,18 +18,12 @@ public class Resp implements Serializable {
 
     private static final long serialVersionUID = -923205047842987950L;
 
-    private static final Class<?> RESULT_CODE_CLASS;
-    private static final String SUCCESS_CODE;
+    private static final String CONF_CLIENT_RESULT_CODE_CLASS   = "client.resultCodeClass";
+    private static final String CONF_CLIENT_SUCCESS_CODE        = "client.successCode";
+    private static final String DEFAULT_SUCCESS_CODE            = "0000";
 
-    static {
-        String className = App.config("client.resultCodeClass");
-        try {
-            RESULT_CODE_CLASS = Class.forName(className);
-            SUCCESS_CODE = App.config("client.successCode", "0000");
-        } catch (ClassNotFoundException e) {
-            throw new ServiceException("cannot find result code class: " + className, e);
-        }
-    }
+    private static Class<?> resultCodeClass;
+    private static String successCode;
 
     /** 结果代码 */
     private String resultCode;
@@ -58,7 +52,7 @@ public class Resp implements Serializable {
      * @return 消息内容
      */
     public String getMessage() {
-        return Dicts.name(resultCode, RESULT_CODE_CLASS);
+        return Dicts.name(resultCode, getResultCodeClass());
     }
 
     /**
@@ -67,6 +61,35 @@ public class Resp implements Serializable {
      * @return 判断结果
      */
     public Boolean isSuccess() {
-        return (Strings.empty(resultCode) || Strings.equals(SUCCESS_CODE, resultCode));
+        return (Strings.empty(resultCode) || Strings.equals(getSuccessCode(), resultCode));
+    }
+
+    /**
+     * 读取结果代码字典类
+     *
+     * @return 结果代码字典类
+     */
+    private static Class<?> getResultCodeClass() {
+        if (resultCodeClass == null) {
+            String className = App.config(CONF_CLIENT_RESULT_CODE_CLASS);
+            try {
+                resultCodeClass = Class.forName(className);
+            } catch (ClassNotFoundException e) {
+                throw new ServiceException("cannot find result code class: " + className, e);
+            }
+        }
+        return resultCodeClass;
+    }
+
+    /**
+     * 读取成功代码
+     *
+     * @return 成功代码
+     */
+    private static String getSuccessCode() {
+        if (successCode == null) {
+            successCode = App.config(CONF_CLIENT_SUCCESS_CODE, DEFAULT_SUCCESS_CODE);
+        }
+        return successCode;
     }
 }
