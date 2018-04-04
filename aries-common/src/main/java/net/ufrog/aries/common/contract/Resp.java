@@ -2,8 +2,8 @@ package net.ufrog.aries.common.contract;
 
 import net.ufrog.common.app.App;
 import net.ufrog.common.dict.Dicts;
+import net.ufrog.common.exception.ServiceException;
 import net.ufrog.common.utils.Strings;
-import org.hibernate.service.spi.ServiceException;
 
 import java.io.Serializable;
 
