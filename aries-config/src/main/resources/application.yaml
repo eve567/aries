@@ -8,7 +8,7 @@ spring:
       uri: http://127.0.0.1:8888
       server:
         git:
-          uri: https://git.coding.net/ufrog/ufrog-aries.git
+          uri: https://git.coding.net/ufrog/aries.git
           username: ufrog.net@gmail.com
           password: frog1984
           search-paths: aries-config/src/main/resources/repo
