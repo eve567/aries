@@ -19,7 +19,7 @@ public class ListResp<T extends Resp> extends Resp {
     private List<T> content;
 
     /** 构造函数 */
-    ListResp() {
+    public ListResp() {
         content = new ArrayList<>();
     }
 
