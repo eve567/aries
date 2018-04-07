@@ -1,0 +1,22 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: thor-server
+  datasource:
+    platform: h2
+  jpa:
+    show-sql: true
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    com.itmuch.youran.persistence: ERROR
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      default-zone: http://127.0.0.1:8761/eureka/
