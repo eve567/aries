@@ -6,8 +6,8 @@ import java.io.Serializable;
  * 基础请求
  *
  * @author ultrafrog, ufrog.net@gmail.com
- * @version 0.1, 2018-03-27
- * @since 0.1
+ * @version 0.0.1, 2018-03-27
+ * @since 0.0.1
  */
 public class Req implements Serializable {
 
@@ -15,6 +15,9 @@ public class Req implements Serializable {
 
     /** 请求头 */
     private ReqHeader reqHeader;
+
+    /** 请求分页 */
+    private ReqPage reqPage;
 
     /** 构造函数 */
     public Req() {
@@ -40,11 +43,29 @@ public class Req implements Serializable {
     }
 
     /**
+     * 读取请求分页
+     *
+     * @return 请求分页
+     */
+    public ReqPage getReqPage() {
+        return reqPage;
+    }
+
+    /**
+     * 设置请求分页
+     *
+     * @param reqPage 请求分页
+     */
+    public void setReqPage(ReqPage reqPage) {
+        this.reqPage = reqPage;
+    }
+
+    /**
      * 请求头
      *
      * @author ultrafrog, ufrog.net@gmail.com
-     * @version 0.1, 2018-03-27
-     * @since 0.1
+     * @version 0.0.1, 2018-03-27
+     * @since 0.0.1
      */
     public static class ReqHeader implements Serializable {
 
@@ -90,6 +111,77 @@ public class Req implements Serializable {
          */
         public void setAccessToken(String accessToken) {
             this.accessToken = accessToken;
+        }
+    }
+
+    /**
+     * 请求分页
+     *
+     * @author ultrafrog, ufrog.net@gmail.com
+     * @version 0.0.1, 2018-04-08
+     * @since 0.0.1
+     */
+    public static class ReqPage implements Serializable {
+
+        private static final long serialVersionUID = 5644370339378908461L;
+
+        /** 单页数据量 */
+        private Integer size;
+
+        /** 目标页码 */
+        private Integer target;
+
+        /** 构造函数 */
+        public ReqPage() {
+            this.size = Integer.MAX_VALUE;
+            this.target = 0;
+        }
+
+        /**
+         * 构造函数
+         *
+         * @param size 单页数据量
+         * @param target 目标页码
+         */
+        public ReqPage(Integer size, Integer target) {
+            this.size = size;
+            this.target = target;
+        }
+
+        /**
+         * 读取单页数据量
+         *
+         * @return 单页数据量
+         */
+        public Integer getSize() {
+            return size;
+        }
+
+        /**
+         * 设置单页数据量
+         *
+         * @param size 单页数据量
+         */
+        public void setSize(Integer size) {
+            this.size = size;
+        }
+
+        /**
+         * 读取目标页码
+         *
+         * @return 目标页码
+         */
+        public Integer getTarget() {
+            return target;
+        }
+
+        /**
+         * 设置目标页码
+         *
+         * @param target 目标页码
+         */
+        public void setTarget(Integer target) {
+            this.target = target;
         }
     }
 }
