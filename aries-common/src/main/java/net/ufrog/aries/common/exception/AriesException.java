@@ -24,7 +24,7 @@ public class AriesException extends ServiceException {
      *
      * @param resultCode 结果代码
      */
-    private AriesException(String resultCode) {
+    public AriesException(String resultCode) {
         this();
         this.resultCode = resultCode;
     }
