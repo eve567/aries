@@ -48,8 +48,8 @@ ufrog:
         email: "[\\w!#$%&'*+/=?^_`{|}~-]+(?:\\.[\\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[a-zA-Z0-9](?:[\\w-]*[\\w])?"
       path:
         resource:
-          common: //localhost:7086/static/resources
-          host: //localhost:7086/static/resources/leo
+          common: //10.111.4.49:800/leo/resources
+          host: //10.111.4.49:800/leo/resources/leo
       cache:
         default:
           duration: 4h
