@@ -29,6 +29,7 @@ public class ListResp<T extends Resp> extends Resp {
      * @param content 数据内容
      */
     public ListResp(Collection<T> content) {
+        this();
         this.content.addAll(content);
     }
 
