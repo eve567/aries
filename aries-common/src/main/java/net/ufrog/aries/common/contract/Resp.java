@@ -28,6 +28,19 @@ public class Resp implements Serializable {
     /** 结果代码 */
     private String resultCode;
 
+    /** 构造函数 */
+    public Resp() {}
+
+    /**
+     * 构造函数
+     *
+     * @param resultCode 结果代码
+     */
+    public Resp(String resultCode) {
+        this();
+        this.resultCode = resultCode;
+    }
+
     /**
      * 读取结果代码
      *

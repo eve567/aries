@@ -14,6 +14,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>net.ufrog</groupId>
+            <artifactId>ufrog-common-spring</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
             <optional>true</optional>
