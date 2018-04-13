@@ -11,7 +11,7 @@ spring:
       prefix: templates/default/
       suffix: .html
       config:
-        jetx.import.classes: net.ufrog.common.app.App, net.ufrog.common.spring.app.SpringWebApp, net.ufrog.leo.domains.models.*, net.ufrog.leo.beans.**
+        jetx.import.classes: net.ufrog.common.app.App, net.ufrog.common.spring.app.SpringWebApp
         jetx.trim.directive.comments: "true"
         jetx.template.loaders: $loader
         $loader: jetbrick.template.loader.ClasspathResourceLoader
