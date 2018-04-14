@@ -25,4 +25,4 @@ ufrog:
     enabled: true
     config:
       client:
-        resultCode: net.ufrog.aries.sample.client.contract.ResultCode
+        resultCodeClass: net.ufrog.aries.sample.client.contract.ResultCode
