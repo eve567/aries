@@ -23,3 +23,6 @@ eureka:
 ufrog:
   app:
     enabled: true
+    config:
+      client:
+        resultCode: net.ufrog.aries.sample.client.contract.ResultCode
