@@ -18,6 +18,8 @@ public class SampleController implements SampleClient {
     @Override
     public SampleResp findById(String id) {
         SampleResp sampleResp = new SampleResp();
+        sampleResp.setCode("success");
+        sampleResp.setName("成功");
         sampleResp.setResultCode(ResultCode.SUCCESS);
         return sampleResp;
     }
