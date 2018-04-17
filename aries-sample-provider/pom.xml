@@ -38,11 +38,19 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>net.ufrog</groupId>
             <artifactId>aries-sample-client</artifactId>
             <version>${aries-sample-client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.ufrog</groupId>
+            <artifactId>ufrog-common-spring</artifactId>
         </dependency>
     </dependencies>
 

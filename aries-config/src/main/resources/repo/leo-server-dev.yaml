@@ -64,4 +64,7 @@ ufrog:
 #        default:
 #          type: single
       leo:
+        host: http://127.0.0.1:8080
         accessTokenManager: net.ufrog.leo.server.accesstoken.MemAccessTokenManager
+      client:
+        resultCodeClass: net.ufrog.leo.client.contract.ResultCode

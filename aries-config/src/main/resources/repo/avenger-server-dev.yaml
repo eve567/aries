@@ -67,3 +67,5 @@ ufrog:
 #          type: single
       leo:
         accessTokenManager: net.ufrog.leo.server.accesstoken.MemAccessTokenManager
+      client:
+        resultCodeClass: com.lianchuang.avenger.client.contract.ResultCode

@@ -14,8 +14,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>net.ufrog</groupId>
-            <artifactId>ufrog-common-spring</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -27,10 +27,6 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
@@ -38,11 +34,19 @@
             <groupId>net.sf.ehcache</groupId>
             <artifactId>ehcache</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>net.ufrog</groupId>
             <artifactId>aries-sample-client</artifactId>
             <version>${aries-sample-client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.ufrog</groupId>
+            <artifactId>ufrog-common-spring</artifactId>
         </dependency>
     </dependencies>
 
