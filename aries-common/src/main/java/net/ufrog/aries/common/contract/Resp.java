@@ -28,6 +28,12 @@ public class Resp implements Serializable {
     /** 结果代码 */
     private String resultCode;
 
+    /** 结果消息 */
+    private String message;
+
+    /** 是否成功 */
+    private Boolean success;
+
     /** 构造函数 */
     public Resp() {}
 
@@ -65,7 +71,19 @@ public class Resp implements Serializable {
      * @return 消息内容
      */
     public String getMessage() {
-        return Dicts.name(resultCode, getResultCodeClass());
+        if (Strings.empty(message)) {
+            return Dicts.name(resultCode, getResultCodeClass());
+        }
+        return message;
+    }
+
+    /**
+     * 设置消息
+     *
+     * @param message 消息
+     */
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     /**
@@ -74,7 +92,19 @@ public class Resp implements Serializable {
      * @return 判断结果
      */
     public Boolean isSuccess() {
-        return (Strings.empty(resultCode) || Strings.equals(getSuccessCode(), resultCode));
+        if (success == null) {
+            return (Strings.empty(resultCode) || Strings.equals(getSuccessCode(), resultCode));
+        }
+        return success;
+    }
+
+    /**
+     * 设置是否成功
+     *
+     * @param success 是否成功
+     */
+    public void setSuccess(Boolean success) {
+        this.success = success;
     }
 
     /**
