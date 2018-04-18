@@ -43,6 +43,15 @@ public class ListResp<T extends Resp> extends Resp {
     }
 
     /**
+     * 添加数据
+     *
+     * @param data 数据
+     */
+    public void add(T data) {
+        content.add(data);
+    }
+
+    /**
      * 判断数据集合是否为空
      *
      * @return 判断结果
