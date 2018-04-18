@@ -4,11 +4,12 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import net.ufrog.aries.sample.client.SampleClient;
+import net.ufrog.aries.sample.client.fallbacks.SampleClientFallbackFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -21,10 +22,10 @@ import java.util.List;
  * @version 0.1, 2018-02-22
  * @since 0.1
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackageClasses = {AriesSampleConsumerApplication.class, SampleClientFallbackFactory.class})
 @EnableDiscoveryClient
 @EnableFeignClients(basePackageClasses = SampleClient.class)
-@EnableCircuitBreaker
+@EnableHystrix
 public class AriesSampleConsumerApplication {
 
     public static void main(String[] args) {
@@ -32,6 +33,7 @@ public class AriesSampleConsumerApplication {
     }
 
     @Bean
+    @SuppressWarnings("Duplicates")
     public HttpMessageConverter jsonConverter() {
         FastJsonHttpMessageConverter fastJsonHttpMessageConverter = new FastJsonHttpMessageConverter();
         FastJsonConfig fastJsonConfig = new FastJsonConfig();

@@ -3,6 +3,7 @@ package net.ufrog.aries.sample.provider;
 import net.ufrog.aries.sample.client.SampleClient;
 import net.ufrog.aries.sample.client.contract.ResultCode;
 import net.ufrog.aries.sample.client.contract.SampleResp;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -13,12 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 0.1
  */
 @RestController
+@SuppressWarnings("MVCPathVariableInspection")
 public class SampleController implements SampleClient {
 
     @Override
-    public SampleResp findById(String id) {
+    public SampleResp findById(@PathVariable("id") String id) {
         SampleResp sampleResp = new SampleResp();
-        sampleResp.setCode("success");
+        sampleResp.setCode(id);
         sampleResp.setName("成功");
         sampleResp.setResultCode(ResultCode.SUCCESS);
         return sampleResp;
