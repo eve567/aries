@@ -9,16 +9,6 @@ eureka:
   client:
     service-url:
       default-zone: http://127.0.0.1:8761/eureka/
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 5000
-feign:
-  hystrix:
-    enabled: true
 ufrog:
   app:
     enabled: true
