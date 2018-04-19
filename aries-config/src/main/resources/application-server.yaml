@@ -8,4 +8,4 @@ spring:
           uri: https://git.coding.net/ufrog/lc-config.git
           username: ufrog.net@gmail.com
           password: frog1984
-          search-paths: ufrog-leo,ufrog-pisces,lc-thor,lc-avenger
+          search-paths: ufrog-aries,ufrog-leo,ufrog-pisces,lc-thor,lc-avenger
