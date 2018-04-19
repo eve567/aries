@@ -1,0 +1,6 @@
+spring:
+  cloud:
+    config:
+      uri: ${config.uri}
+      name: aries-eureka
+      profile: ${config.profile}
