@@ -1,18 +1,16 @@
 package net.ufrog.aries.sample.client.fallbacks;
 
-import feign.hystrix.FallbackFactory;
+import net.ufrog.aries.common.contract.ClientFallbackFactory;
 import net.ufrog.aries.sample.client.SampleClient;
 import net.ufrog.aries.sample.client.contract.ResultCode;
 import net.ufrog.aries.sample.client.contract.SampleResp;
-import net.ufrog.common.Logger;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SampleClientFallbackFactory implements FallbackFactory<SampleClient> {
+public class SampleClientFallbackFactory extends ClientFallbackFactory<SampleClient> {
 
     @Override
-    public SampleClient create(Throwable throwable) {
-        Logger.warn("===================== fallback ===================");
+    public SampleClient getClientFallback() {
         return id -> {
             SampleResp sampleResp = new SampleResp();
             sampleResp.setCode("failure");
