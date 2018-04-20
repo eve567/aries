@@ -154,10 +154,10 @@ public class Model extends ID {
     private String getCurrentUserId() {
         try {
             return App.user().getId();
-        } catch (NotSignException e) {
+        } catch (NotSignException | NullPointerException e) {
             return null;
         } catch (Throwable e) {
-            Logger.warn(e.getMessage());
+            Logger.warn(e.getMessage(), e);
             return null;
         }
     }
