@@ -157,7 +157,7 @@ public class Model extends ID {
         } catch (NotSignException e) {
             return null;
         } catch (Throwable e) {
-            Logger.warn(e.getMessage(), e);
+            Logger.warn(e.getMessage());
             return null;
         }
     }
