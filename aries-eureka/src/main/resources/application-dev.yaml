@@ -5,9 +5,9 @@ spring:
     name: aries-eureka
 eureka:
   instance:
-    hostname: 127.0.0.1
+    hostname: localhost
   client:
-    register-with-eureka: false
-    fetch-registry: false
-    service-url:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
       default-zone: http://${eureka.instance.hostname}:${server.port}/eureka/

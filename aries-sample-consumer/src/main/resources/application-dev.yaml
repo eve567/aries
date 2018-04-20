@@ -5,10 +5,10 @@ spring:
     name: aries-sample-consumer
 eureka:
   instance:
-    prefer-ip-address: true
+    preferIpAddress: true
   client:
-    service-url:
-      default-zone: http://127.0.0.1:8761/eureka/
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
 hystrix:
   command:
     default:
