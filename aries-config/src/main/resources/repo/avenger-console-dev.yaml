@@ -58,4 +58,7 @@ ufrog:
 #        default:
 #          type: single
       leo:
-        accessTokenManager: net.ufrog.leo.server.accesstoken.MemAccessTokenManager
+        enabled: true
+        host: http://10.111.4.49:8100
+        appId: 1b36e466-2210-4502-b5d3-3cf248a3f76e
+        appSecret: uPUghkTmieWCtaOB1xFEcdmFHKJSmjCtCkTTdKQoeSjbFdYY3MR7m8uwGHWtqU2M
