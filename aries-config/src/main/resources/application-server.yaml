@@ -1,3 +1,5 @@
+server:
+  port: ${config.port:8080}
 spring:
   application:
     name: aries-config
