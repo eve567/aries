@@ -43,7 +43,7 @@ ufrog:
       path:
         resource:
           common: //10.111.4.49:800/leo/resources
-          host: //10.111.4.49:800/leo/resources/leo
+          host: //localhost:7030/static/resources
       cache:
         default:
           duration: 4h
