@@ -52,6 +52,15 @@ public class PageResp<T extends Resp> extends ListResp<T> {
     }
 
     /**
+     * 设置数据总量
+     *
+     * @param count 数据总量
+     */
+    public void setCount(Long count) {
+        this.count = count;
+    }
+
+    /**
      * 读取分页大小
      *
      * @return 分页大小
@@ -61,12 +70,30 @@ public class PageResp<T extends Resp> extends ListResp<T> {
     }
 
     /**
+     * 设置分页大小
+     *
+     * @param size 分页大小
+     */
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+
+    /**
      * 读取当前页号
      *
      * @return 当前页号
      */
     public Integer getPage() {
         return page;
+    }
+
+    /**
+     * 设置当前页号
+     *
+     * @param page 当前页号
+     */
+    public void setPage(Integer page) {
+        this.page = page;
     }
 
     /**

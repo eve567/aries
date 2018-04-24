@@ -1,22 +1,23 @@
 server:
-  port: 8761
+  port: ${config.port:8761}
 spring:
   application:
     name: aries-eureka
 eureka:
-  instance:
-    hostname: 127.0.0.1
-    leaseExpirationDurationInSeconds: 15
-    leaseRenewalIntervalInSeconds: 5
-    preferIpAddress: true
-  client:
-    registerWithEureka: false
-    fetchRegistry: false
-    registryFetchIntervalSeconds: 5
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   server:
     responseCacheUpdateIntervalMs: 3000
     responseCacheAutoExpirationInSeconds: 180
     evictionIntervalTimerInMs: 3000
-    enableSelfPreservation: false
+    enableSelfPreservation: true
+  instance:
+    appname: aries-eureka
+    hostname: ${config.hostname:master}
+    leaseExpirationDurationInSeconds: 15
+    leaseRenewalIntervalInSeconds: 5
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://eureka-server-1:8761/eureka/,http://eureka-server-2:8762/eureka/
