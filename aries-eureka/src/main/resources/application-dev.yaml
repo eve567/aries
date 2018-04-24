@@ -5,9 +5,18 @@ spring:
     name: aries-eureka
 eureka:
   instance:
-    hostname: localhost
+    hostname: 127.0.0.1
+    leaseExpirationDurationInSeconds: 15
+    leaseRenewalIntervalInSeconds: 5
+    preferIpAddress: true
   client:
     registerWithEureka: false
     fetchRegistry: false
+    registryFetchIntervalSeconds: 5
     serviceUrl:
-      default-zone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    responseCacheUpdateIntervalMs: 3000
+    responseCacheAutoExpirationInSeconds: 180
+    evictionIntervalTimerInMs: 3000
+    enableSelfPreservation: false
