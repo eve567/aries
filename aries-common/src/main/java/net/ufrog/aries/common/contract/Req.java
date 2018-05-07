@@ -77,6 +77,9 @@ public class Req implements Serializable {
         /** 访问令牌 */
         private String accessToken;
 
+        /** 签名 */
+        private String signature;
+
         /**
          * 读取应用编号
          *
@@ -111,6 +114,24 @@ public class Req implements Serializable {
          */
         public void setAccessToken(String accessToken) {
             this.accessToken = accessToken;
+        }
+
+        /**
+         * 读取签名
+         *
+         * @return 签名
+         */
+        public String getSignature() {
+            return signature;
+        }
+
+        /**
+         * 设置签名
+         *
+         * @param signature 签名
+         */
+        public void setSignature(String signature) {
+            this.signature = signature;
         }
     }
 

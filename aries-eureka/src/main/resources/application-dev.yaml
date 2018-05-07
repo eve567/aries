@@ -4,20 +4,20 @@ spring:
   application:
     name: aries-eureka
 eureka:
-  server:
-    responseCacheUpdateIntervalMs: 3000
-    responseCacheAutoExpirationInSeconds: 180
-    evictionIntervalTimerInMs: 3000
-    enableSelfPreservation: true
+#  server:
+#    responseCacheUpdateIntervalMs: 3000
+#    responseCacheAutoExpirationInSeconds: 180
+#    evictionIntervalTimerInMs: 3000
+#    enableSelfPreservation: true
   instance:
-    appname: aries-eureka
-    hostname: ${config.hostname:master}
-    leaseExpirationDurationInSeconds: 15
-    leaseRenewalIntervalInSeconds: 5
-    preferIpAddress: true
+#    appname: aries-eureka
+    hostname: 127.0.0.1
+#    leaseExpirationDurationInSeconds: 15
+#    leaseRenewalIntervalInSeconds: 5
+#    preferIpAddress: true
   client:
-    registerWithEureka: true
-    fetchRegistry: true
-    registryFetchIntervalSeconds: 5
+    registerWithEureka: false
+    fetchRegistry: false
+#    registryFetchIntervalSeconds: 5
     serviceUrl:
-      defaultZone: http://eureka-server-1:8761/eureka/,http://eureka-server-2:8762/eureka/
+      defaultZone: http://127.0.0.1:8761/eureka/

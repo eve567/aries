@@ -1,5 +1,6 @@
 package net.ufrog.aries.common.contract;
 
+import net.ufrog.aries.common.exception.AriesException;
 import net.ufrog.common.app.App;
 import net.ufrog.common.dict.Dicts;
 import net.ufrog.common.exception.ServiceException;
@@ -105,6 +106,24 @@ public class Resp implements Serializable {
      */
     public void setSuccess(Boolean success) {
         this.success = success;
+    }
+
+    /**
+     * 创建响应
+     *
+     * @param resultCode 结果代码
+     * @param type 响应类型
+     * @param <T> 类型范型
+     * @return 响应结果
+     */
+    public static <T extends Resp> T createResp(String resultCode, Class<T> type) {
+        try {
+            T resp = type.newInstance();
+            resp.setResultCode(resultCode);
+            return resp;
+        } catch (InstantiationException | IllegalAccessException e) {
+            throw new ServiceException(e.getMessage(), e);
+        }
     }
 
     /**
