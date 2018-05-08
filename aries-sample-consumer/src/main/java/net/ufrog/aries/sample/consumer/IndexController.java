@@ -24,6 +24,7 @@ public class IndexController {
      *
      * @param sampleClient 样例客户端
      */
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     public IndexController(SampleClient sampleClient) {
         this.sampleClient = sampleClient;

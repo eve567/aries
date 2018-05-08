@@ -1,6 +1,5 @@
 package net.ufrog.aries.common.contract;
 
-import net.ufrog.aries.common.exception.AriesException;
 import net.ufrog.common.app.App;
 import net.ufrog.common.dict.Dicts;
 import net.ufrog.common.exception.ServiceException;
@@ -15,7 +14,7 @@ import java.io.Serializable;
  * @version 0.1, 2018-03-27
  * @since 0.1
  */
-public class Resp implements Serializable {
+public class Response implements Serializable {
 
     private static final long serialVersionUID = -923205047842987950L;
 
@@ -36,14 +35,14 @@ public class Resp implements Serializable {
     private Boolean success;
 
     /** 构造函数 */
-    public Resp() {}
+    public Response() {}
 
     /**
      * 构造函数
      *
      * @param resultCode 结果代码
      */
-    public Resp(String resultCode) {
+    public Response(String resultCode) {
         this();
         this.resultCode = resultCode;
     }
@@ -116,7 +115,7 @@ public class Resp implements Serializable {
      * @param <T> 类型范型
      * @return 响应结果
      */
-    public static <T extends Resp> T createResp(String resultCode, Class<T> type) {
+    public static <T extends Response> T createResp(String resultCode, Class<T> type) {
         try {
             T resp = type.newInstance();
             resp.setResultCode(resultCode);

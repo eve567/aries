@@ -7,15 +7,28 @@
     <parent>
         <groupId>net.ufrog</groupId>
         <artifactId>aries-parent</artifactId>
-        <version>0.0.1</version>
+        <version>1.0.0</version>
     </parent>
     <artifactId>aries-sample-provider</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
+            <groupId>net.ufrog</groupId>
+            <artifactId>aries-sample-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.ufrog</groupId>
+            <artifactId>ufrog-common-spring</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -26,8 +39,8 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
         <dependency>
@@ -37,20 +50,6 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>net.ufrog</groupId>
-            <artifactId>aries-sample-client</artifactId>
-            <version>${aries-sample-client.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>net.ufrog</groupId>
-            <artifactId>ufrog-common-spring</artifactId>
         </dependency>
     </dependencies>
 

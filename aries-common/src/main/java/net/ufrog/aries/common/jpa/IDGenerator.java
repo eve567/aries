@@ -3,7 +3,7 @@ package net.ufrog.aries.common.jpa;
 import net.ufrog.common.Logger;
 import net.ufrog.common.utils.Strings;
 import org.hibernate.HibernateException;
-import org.hibernate.engine.spi.SessionImplementor;
+import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.id.UUIDGenerator;
 
 import java.io.Serializable;
@@ -16,7 +16,7 @@ import java.io.Serializable;
 public class IDGenerator extends UUIDGenerator {
 
     @Override
-    public Serializable generate(SessionImplementor session, Object object) throws HibernateException {
+    public Serializable generate(SharedSessionContractImplementor session, Object object) throws HibernateException {
         if ((object instanceof ManualID) && (object instanceof ID)) {
             ID id = ID.class.cast(object);
             if (!Strings.empty(id.getId())) {

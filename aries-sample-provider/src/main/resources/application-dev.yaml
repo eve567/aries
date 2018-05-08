@@ -1,25 +1,21 @@
 server:
-  port: 8082
+  port: 8081
 spring:
   application:
-    name: aries-sample-consumer
+    name: aries-sample-provider
+  datasource:
+    platform: h2
+  jpa:
+    showSql: true
+logging:
+  level:
+    root: info
 eureka:
   instance:
     preferIpAddress: true
   client:
-    registerWithEureka: false
     serviceUrl:
       defaultZone: http://127.0.0.1:8761/eureka/
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 5000
-feign:
-  hystrix:
-    enabled: true
 ufrog:
   app:
     enabled: true

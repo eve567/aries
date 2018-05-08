@@ -1,6 +1,6 @@
 package net.ufrog.aries.common.exception;
 
-import net.ufrog.aries.common.contract.Resp;
+import net.ufrog.aries.common.contract.Response;
 import net.ufrog.common.spring.exception.ExceptionHandler;
 import net.ufrog.common.spring.exception.ExceptionLogger;
 import net.ufrog.common.spring.exception.ExceptionResolver;
@@ -28,7 +28,7 @@ public class AriesExceptionHandler implements ExceptionHandler<AriesException> {
                 partViewSuffix,
                 jsonView,
                 ExceptionResolver.KEY_MODEL_EXCEPTION,
-                new Resp(e.getResultCode())
+                new Response(e.getResultCode())
         );
     }
 }

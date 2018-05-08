@@ -1,6 +1,6 @@
-package net.ufrog.aries.sample.client.contract;
+package net.ufrog.aries.sample.client.contracts;
 
-import net.ufrog.aries.common.contract.Resp;
+import net.ufrog.aries.common.contract.Response;
 
 /**
  * 样例对象
@@ -9,7 +9,7 @@ import net.ufrog.aries.common.contract.Resp;
  * @version 0.1, 2018-02-21
  * @since 0.1
  */
-public class SampleResp extends Resp {
+public class SampleResponse extends Response {
 
     private static final long serialVersionUID = 6275758945866865457L;
 

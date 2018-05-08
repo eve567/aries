@@ -5,7 +5,7 @@ import net.ufrog.common.Logger;
 
 /**
  * @author ultrafrog, ufrog.net@gmail.com
- * @version 3.0.0, 2018-04-20
+ * @version 3.0.0, 2018-05-08
  * @since 3.0.0
  */
 public abstract class ClientFallbackFactory<T> implements FallbackFactory<T> {

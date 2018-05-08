@@ -1,4 +1,4 @@
-package net.ufrog.aries.sample.client.contract;
+package net.ufrog.aries.sample.client.contracts;
 
 /**
  * 结果代码

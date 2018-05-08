@@ -15,5 +15,5 @@ eureka:
 zuul:
   routes:
     leo:
-      path: /leo/**
-      serviceId: leo-server
+      path: /sample/**
+      serviceId: aries-sample-provider

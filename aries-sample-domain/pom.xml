@@ -7,7 +7,7 @@
     <parent>
         <groupId>net.ufrog</groupId>
         <artifactId>aries-parent</artifactId>
-        <version>0.0.1</version>
+        <version>1.0.0</version>
     </parent>
     <artifactId>aries-sample-domain</artifactId>
     <packaging>jar</packaging>
@@ -20,12 +20,13 @@
         <dependency>
             <groupId>net.ufrog</groupId>
             <artifactId>aries-common</artifactId>
-            <version>${aries-common.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>

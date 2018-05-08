@@ -9,7 +9,7 @@ import java.util.Collection;
  * @version 0.1, 2018-03-29
  * @since 0.1
  */
-public class PageResp<T extends Resp> extends ListResp<T> {
+public class PageResponse<T extends Response> extends ListResponse<T> {
 
     private static final long serialVersionUID = 43920421001937001L;
 
@@ -23,7 +23,7 @@ public class PageResp<T extends Resp> extends ListResp<T> {
     private Integer page;
 
     /** 构造函数 */
-    private PageResp() {
+    private PageResponse() {
         super();
     }
 
@@ -34,7 +34,7 @@ public class PageResp<T extends Resp> extends ListResp<T> {
      * @param size 分页大小
      * @param page 当前页号
      */
-    public PageResp(Long count, Integer size, Integer page, Collection<T> content) {
+    public PageResponse(Long count, Integer size, Integer page, Collection<T> content) {
         this();
         this.count = count;
         this.size = size;

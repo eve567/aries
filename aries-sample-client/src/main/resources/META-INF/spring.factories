@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration = net.ufrog.aries.sample.client.AriesSampleClientConfiguration,\
+                                                                 net.ufrog.aries.sample.client.AriesSampleCommonConfiguration

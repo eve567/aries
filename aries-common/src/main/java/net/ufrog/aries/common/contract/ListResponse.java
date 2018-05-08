@@ -11,7 +11,7 @@ import java.util.List;
  * @version 0.1, 2018-03-29
  * @since 0.1
  */
-public class ListResp<T extends Resp> extends Resp {
+public class ListResponse<T extends Response> extends Response {
 
     private static final long serialVersionUID = -8818533468144993724L;
 
@@ -19,7 +19,7 @@ public class ListResp<T extends Resp> extends Resp {
     private List<T> content;
 
     /** 构造函数 */
-    public ListResp() {
+    public ListResponse() {
         content = new ArrayList<>();
     }
 
@@ -28,7 +28,7 @@ public class ListResp<T extends Resp> extends Resp {
      *
      * @param content 数据内容
      */
-    public ListResp(Collection<T> content) {
+    public ListResponse(Collection<T> content) {
         this();
         this.content.addAll(content);
     }

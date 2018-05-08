@@ -1,6 +1,3 @@
 spring:
-  cloud:
-    config:
-      uri: http://127.0.0.1:8888
-      name: aries-sample-provider
-      profile: ${config.profile:dev}
+  profiles:
+    active: ${config.profile:dev}
