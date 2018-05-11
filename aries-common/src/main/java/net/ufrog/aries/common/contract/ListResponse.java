@@ -43,6 +43,15 @@ public class ListResponse<T extends Response> extends Response {
     }
 
     /**
+     * 设置数据内容
+     *
+     * @param content 数据内容
+     */
+    public void setContent(List<T> content) {
+        this.content = content;
+    }
+
+    /**
      * 添加数据
      *
      * @param data 数据
