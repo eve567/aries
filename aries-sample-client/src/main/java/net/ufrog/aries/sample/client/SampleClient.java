@@ -21,6 +21,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Api("样例服务")
 public interface SampleClient {
 
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    SampleResponse test();
+
     /**
      * 通过编号查询样例
      *

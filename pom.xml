@@ -44,6 +44,7 @@
         <module>aries-config</module>
         <module>aries-eureka</module>
         <module>aries-zuul</module>
+        <module>aries-gateway</module>
         <module>aries-hystrix-dashboard</module>
         <module>aries-common</module>
         <module>aries-sample-domain</module>

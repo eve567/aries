@@ -16,6 +16,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SampleController implements SampleClient {
 
+    @Override
+    public SampleResponse test() {
+        SampleResponse sampleResp = new SampleResponse();
+        sampleResp.setCode("test");
+        sampleResp.setName("success id: test");
+        sampleResp.setResultCode(ResultCode.SUCCESS);
+        return sampleResp;
+    }
+
     @SuppressWarnings("MVCPathVariableInspection")
     @Override
     public SampleResponse findById(@PathVariable("id") String id) {

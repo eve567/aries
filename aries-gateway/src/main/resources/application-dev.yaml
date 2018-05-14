@@ -1,0 +1,30 @@
+server:
+  port: 5566
+spring:
+  application:
+    name: aries-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: aries-sample-provider
+        uri: lb://aries-sample-provider
+        predicates:
+        - Path=/aries/**
+        filters:
+        - RewritePath=/aries/(?<segment>.*), /$\{segment}
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
