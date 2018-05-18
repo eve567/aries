@@ -17,6 +17,17 @@ public class SampleClientFallbackFactory extends ClientFallbackFactory<SampleCli
 
     @Override
     public SampleClient getClientFallback() {
-        return id -> Response.createResp(ResultCode.UNKNOW, SampleResponse.class);
+        return new SampleClient() {
+
+            @Override
+            public SampleResponse test() {
+                return Response.createResp(ResultCode.UNKNOW, SampleResponse.class);
+            }
+
+            @Override
+            public SampleResponse findById(String id) {
+                return Response.createResp(ResultCode.UNKNOW, SampleResponse.class);
+            }
+        };
     }
 }

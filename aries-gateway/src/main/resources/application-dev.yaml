@@ -12,13 +12,14 @@ spring:
       - id: aries-sample-provider
         uri: lb://aries-sample-provider
         predicates:
-        - Path=/aries/**
+        - Path=/aries/{segment}
         filters:
-        - RewritePath=/aries/(?<segment>.*), /$\{segment}
+        - SetPath=/sample/{segment}
 eureka:
   instance:
     preferIpAddress: true
   client:
+    registerWithEureka: false
     serviceUrl:
       defaultZone: http://127.0.0.1:8761/eureka/
 hystrix:

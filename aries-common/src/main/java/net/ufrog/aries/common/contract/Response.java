@@ -14,6 +14,7 @@ import java.io.Serializable;
  * @version 0.1, 2018-03-27
  * @since 0.1
  */
+@SuppressWarnings("unused")
 public class Response implements Serializable {
 
     private static final long serialVersionUID = -923205047842987950L;
@@ -53,6 +54,9 @@ public class Response implements Serializable {
      * @return 结果代码
      */
     public String getResultCode() {
+        if (Strings.empty(resultCode)) {
+            return getSuccessCode();
+        }
         return resultCode;
     }
 
@@ -72,7 +76,7 @@ public class Response implements Serializable {
      */
     public String getMessage() {
         if (Strings.empty(message)) {
-            return Dicts.name(resultCode, getResultCodeClass());
+            return Dicts.name(getResultCode(), getResultCodeClass());
         }
         return message;
     }
@@ -93,7 +97,7 @@ public class Response implements Serializable {
      */
     public Boolean isSuccess() {
         if (success == null) {
-            return (Strings.empty(resultCode) || Strings.equals(getSuccessCode(), resultCode));
+            return Strings.equals(getSuccessCode(), getResultCode());
         }
         return success;
     }
