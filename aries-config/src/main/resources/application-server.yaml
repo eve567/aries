@@ -7,7 +7,7 @@ spring:
     config:
       server:
         git:
-          uri: https://git.coding.net/ufrog/lc-config.git
-          username: ufrog.net@gmail.com
-          password: frog1984
-          search-paths: ufrog-aries,ufrog-leo,ufrog-pisces,lc-thor,lc-avenger
+          uri: ${config.git.uri}
+          username: ${config.git.username}
+          password: ${config.git.password}
+          search-paths: ${config.git.paths}
