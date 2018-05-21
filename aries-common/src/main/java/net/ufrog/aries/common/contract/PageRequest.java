@@ -9,13 +9,13 @@ import java.io.Serializable;
  * @version 4.0.1, 2018-05-18
  * @since 4.0.1
  */
-public class PaginationRequest extends Request {
+public class PageRequest extends Request {
 
     /** 分页信息 */
     private Pagination pagination;
 
     /** 构造函数 */
-    public PaginationRequest() {
+    public PageRequest() {
         pagination = new Pagination();
     }
 
