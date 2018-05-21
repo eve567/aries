@@ -119,11 +119,25 @@ public class Response implements Serializable {
      * @param <T> 类型范型
      * @return 响应结果
      */
-    public static <T extends Response> T createResp(String resultCode, Class<T> type) {
+    public static <T extends Response> T createResponse(String resultCode, Class<T> type) {
+        return createResponse(resultCode, null, type);
+    }
+
+    /**
+     * 创建响应
+     *
+     * @param resultCode 结果代码
+     * @param message 消息
+     * @param type 响应类型
+     * @param <T> 类型范型
+     * @return 响应结果
+     */
+    public static <T extends Response> T createResponse(String resultCode, String message, Class<T> type) {
         try {
-            T resp = type.newInstance();
-            resp.setResultCode(resultCode);
-            return resp;
+            T response = type.newInstance();
+            response.setResultCode(resultCode);
+            response.setMessage(message);
+            return response;
         } catch (InstantiationException | IllegalAccessException e) {
             throw new ServiceException(e.getMessage(), e);
         }
