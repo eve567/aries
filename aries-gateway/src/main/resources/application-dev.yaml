@@ -9,23 +9,17 @@ spring:
         locator:
           enabled: true
       routes:
-      - id: aries-sample-provider
-        uri: lb://aries-sample-provider
+      - id: leo-server-sso
+        uri: lb://leo-server
         predicates:
-        - Path=/aries/{segment}
+        - Path=/sso/**
         filters:
-        - SetPath=/sample/{segment}
+        - StripPrefix=1
+        - PrefixPath=/api
 eureka:
   instance:
     preferIpAddress: true
   client:
-    registerWithEureka: false
+    registerWithEureka: true
     serviceUrl:
       defaultZone: http://127.0.0.1:8761/eureka/
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 5000
