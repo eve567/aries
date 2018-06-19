@@ -16,9 +16,13 @@ import java.util.Date;
  * @since 0.1
  */
 @MappedSuperclass
+@SuppressWarnings("ALL")
 public class Model extends ID {
 
     private static final long serialVersionUID = 3816463068774430969L;
+
+    public static final String NULL             = "_null";
+    public static final String[] STATIC_COLUMNS = {"id", "creator", "createTime", "updater", "updateTime"};
 
     /** 创建用户 */
     @Column(name = "fk_creator")
