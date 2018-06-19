@@ -38,6 +38,24 @@ public class PageRequest extends Request {
     }
 
     /**
+     * 设置目标页码
+     *
+     * @param target 目标页码
+     */
+    public void setTarget(Integer target) {
+        getPagination().setTarget(target);
+    }
+
+    /**
+     * 设置单页数据量
+     *
+     * @param size 单页数据量
+     */
+    public void setSize(Integer size) {
+        getPagination().setSize(size);
+    }
+
+    /**
      * 请求分页
      *
      * @author ultrafrog, ufrog.net@gmail.com
