@@ -10,16 +10,30 @@ spring:
           enabled: true
       routes:
       - id: leo-server-sso
-        uri: lb://leo-server
+        uri: lb://leo-server-4-0-2
         predicates:
         - Path=/sso/**
         filters:
+        - AppAuthenticate
         - StripPrefix=1
         - PrefixPath=/api
+      - id: spiderman-api
+        uri: lb://spiderman-api
+        predicates:
+        - Path=/miutour/**
+        filters:
+        - AppAuthenticate
+logging:
+  level:
+    root: info
+    app: trace
 eureka:
   instance:
     preferIpAddress: true
+    leaseExpirationDurationInSeconds: 15
+    leaseRenewalIntervalInSeconds: 5
   client:
-    registerWithEureka: true
+    registryFetchIntervalSeconds: 5
+    registerWithEureka: false
     serviceUrl:
-      defaultZone: http://127.0.0.1:8761/eureka/
+      defaultZone: http://10.111.4.49:8002/eureka/,http://10.111.4.49:8003/eureka/,http://10.111.4.49:8001/eureka/

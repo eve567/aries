@@ -1,8 +1,11 @@
 package net.ufrog.aries.gateway;
 
+import net.ufrog.leo.client.AppClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
+import org.springframework.context.annotation.Bean;
 
 /**
  * @author ultrafrog, ufrog.net@gmail.com
@@ -11,6 +14,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
+@EnableHystrix
 public class AriesGatewayApplication {
 
     /**
@@ -18,5 +22,11 @@ public class AriesGatewayApplication {
      */
     public static void main(String[] args) {
         SpringApplication.run(AriesGatewayApplication.class, args);
+    }
+
+    @Bean
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
+    public AppAuthenticateGatewayFilterFactory appAuthenticateGatewayFilterFactory(AppClient appClient) {
+        return new AppAuthenticateGatewayFilterFactory(appClient);
     }
 }
