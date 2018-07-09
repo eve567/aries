@@ -10,7 +10,7 @@ spring:
           enabled: true
       routes:
       - id: leo-server-sso
-        uri: lb://leo-server-4-0-2
+        uri: lb://leo-server-4
         predicates:
         - Path=/sso/**
         filters:
