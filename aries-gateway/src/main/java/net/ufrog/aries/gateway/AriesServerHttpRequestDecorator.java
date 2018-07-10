@@ -18,7 +18,7 @@ import java.nio.charset.Charset;
  * @version 2.0.0, 2018-07-04
  * @since 2.0.0
  */
-public class PartnerServerHttpRequestDecorator extends ServerHttpRequestDecorator {
+public class AriesServerHttpRequestDecorator extends ServerHttpRequestDecorator {
 
     /** 是否为首次调用 */
     private Boolean isFirst = Boolean.TRUE;
@@ -31,7 +31,7 @@ public class PartnerServerHttpRequestDecorator extends ServerHttpRequestDecorato
      *
      * @param delegate delegate
      */
-    public PartnerServerHttpRequestDecorator(ServerHttpRequest delegate) {
+    public AriesServerHttpRequestDecorator(ServerHttpRequest delegate) {
         super(delegate);
     }
 
@@ -39,7 +39,7 @@ public class PartnerServerHttpRequestDecorator extends ServerHttpRequestDecorato
     public Flux<DataBuffer> getBody() {
         if (isFirst) {
             isFirst = Boolean.FALSE;
-            return super.getBody().publishOn(Schedulers.single()).map(this::cache);
+            return super.getBody().publishOn(Schedulers.immediate()).map(this::cache);
         } else {
             return Flux.just(getDataBuffer());
         }

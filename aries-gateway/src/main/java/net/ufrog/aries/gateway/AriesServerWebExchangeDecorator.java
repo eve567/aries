@@ -10,16 +10,16 @@ import org.springframework.web.server.ServerWebExchangeDecorator;
  * @version 2.0.0, 2018-07-05
  * @since 2.0.0
  */
-public class PartnerServerWebExchangeDecorator extends ServerWebExchangeDecorator {
+public class AriesServerWebExchangeDecorator extends ServerWebExchangeDecorator {
 
     private final ServerHttpRequestDecorator serverHttpRequestDecorator;
 
     /**
      * @param delegate delegate
      */
-    protected PartnerServerWebExchangeDecorator(ServerWebExchange delegate) {
+    AriesServerWebExchangeDecorator(ServerWebExchange delegate) {
         super(delegate);
-        this.serverHttpRequestDecorator = new PartnerServerHttpRequestDecorator(delegate.getRequest());
+        this.serverHttpRequestDecorator = new AriesServerHttpRequestDecorator(delegate.getRequest());
     }
 
     @Override

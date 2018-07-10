@@ -18,6 +18,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.util.MultiValueMap;
 import reactor.core.publisher.Flux;
+import reactor.core.scheduler.Schedulers;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -58,13 +59,13 @@ public class AppAuthenticateGatewayFilterFactory extends AbstractGatewayFilterFa
     @Override
     public GatewayFilter apply(Object config) {
         return (exchange, chain) -> {
-            PartnerServerWebExchangeDecorator partnerServerWebExchangeDecorator = new PartnerServerWebExchangeDecorator(exchange);
-            HttpStatus httpStatus = checkSign(partnerServerWebExchangeDecorator.getRequest());
+            AriesServerWebExchangeDecorator ariesServerWebExchangeDecorator = new AriesServerWebExchangeDecorator(exchange);
+            HttpStatus httpStatus = checkSign(ariesServerWebExchangeDecorator.getRequest());
             if (!HttpStatus.OK.equals(httpStatus)) {
                 exchange.getResponse().setStatusCode(httpStatus);
                 return exchange.getResponse().setComplete();
             } else {
-                return chain.filter(partnerServerWebExchangeDecorator);
+                return chain.filter(ariesServerWebExchangeDecorator);
             }
         };
     }
@@ -139,7 +140,7 @@ public class AppAuthenticateGatewayFilterFactory extends AbstractGatewayFilterFa
      */
     private String getBody(Flux<DataBuffer> fluxBody) {
         StringBuffer body = Strings.buffer();
-        fluxBody.subscribe(dataBuffer -> {
+        fluxBody.publishOn(Schedulers.immediate()).subscribe(dataBuffer -> {
             body.append(new String(Streams.toByteArray(dataBuffer.asInputStream()), Charset.forName("utf-8")));
             DataBufferUtils.release(dataBuffer);
         });
