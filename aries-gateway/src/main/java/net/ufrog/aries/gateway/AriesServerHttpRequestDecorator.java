@@ -61,6 +61,6 @@ public class AriesServerHttpRequestDecorator extends ServerHttpRequestDecorator 
      */
     private DataBuffer getDataBuffer() {
         NettyDataBufferFactory nettyDataBufferFactory = new NettyDataBufferFactory(new UnpooledByteBufAllocator(false));
-        return nettyDataBufferFactory.wrap(bytes);
+        return nettyDataBufferFactory.wrap((bytes == null) ? new byte[0] : bytes);
     }
 }
