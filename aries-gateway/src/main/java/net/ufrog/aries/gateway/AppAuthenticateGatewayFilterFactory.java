@@ -200,7 +200,8 @@ public class AppAuthenticateGatewayFilterFactory extends AbstractGatewayFilterFa
         String timestamp = httpHeaders.getFirst(HEADER_CLIENT_TIMESTAMP);
         String algorithm = httpHeaders.getFirst(HEADER_CLIENT_ALGORITHM);
 
-        Logger.debug(System.currentTimeMillis() + "");
+        Logger.trace("print all headers");
+        httpHeaders.forEach((key, value) -> Logger.trace("header key: %s, value: %s", key, Strings.implode(value, ",")));
         if (Strings.empty(appId) || Strings.empty(sign) || Strings.empty(timestamp) || Strings.empty(algorithm)) {
             return null;
         } else {
