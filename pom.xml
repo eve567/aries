@@ -17,7 +17,7 @@
     <repositories>
         <repository>
             <id>maven-public</id>
-            <url>http://10.111.4.49:8081/nexus/content/groups/public/</url>
+            <url>http://maven.lchj.work/nexus/content/groups/public/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -31,12 +31,12 @@
         <repository>
             <id>maven-releases</id>
             <name>maven-releases</name>
-            <url>http://10.111.4.49:8081/nexus/content/repositories/releases/</url>
+            <url>http://maven.lchj.work/nexus/content/repositories/releases/</url>
         </repository>
         <snapshotRepository>
             <id>maven-snapshots</id>
             <name>maven-snapshots</name>
-            <url>http://10.111.4.49:8081/nexus/content/repositories/snapshots/</url>
+            <url>http://maven.lchj.work/nexus/content/repositories/snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
