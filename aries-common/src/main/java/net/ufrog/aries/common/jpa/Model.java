@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import net.ufrog.common.Logger;
 import net.ufrog.common.app.App;
 import net.ufrog.common.exception.NotSignException;
+import net.ufrog.common.utils.Strings;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -164,5 +165,26 @@ public class Model extends ID {
             Logger.warn(e.getMessage(), e);
             return null;
         }
+    }
+
+    /**
+     * 判断值是否为空
+     *
+     * @param value 值
+     * @return 判断结果
+     */
+    public static Boolean empty(String value) {
+        return (Strings.empty(value) || Strings.equals(NULL, value));
+    }
+
+    /**
+     * 判断值是否为空<br>若为空则返回默认值
+     *
+     * @param value 值
+     * @param defaultValue 默认值
+     * @return 判断结果值
+     */
+    public static String empty(String value, String defaultValue) {
+        return empty(value) ? defaultValue : value;
     }
 }
