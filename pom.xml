@@ -14,32 +14,6 @@
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
-    <repositories>
-        <repository>
-            <id>maven-public</id>
-            <url>http://maven.lchj.work/nexus/content/groups/public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-
-    <distributionManagement>
-        <repository>
-            <id>maven-releases</id>
-            <name>maven-releases</name>
-            <url>http://maven.lchj.work/nexus/content/repositories/releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>maven-snapshots</id>
-            <name>maven-snapshots</name>
-            <url>http://maven.lchj.work/nexus/content/repositories/snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
     <modules>
         <module>aries-config</module>
         <module>aries-eureka</module>
